@@ -39,7 +39,11 @@ class DatabaseSeeder extends Seeder
             }
             JobTitle::create(['name' => $value]);
         }
-        Barcode::factory(1)->create(['name' => 'Barcode 1']);
-        Shift::factory(2)->create();
+        if (! Barcode::where('name', 'Barcode 1')->exists()) {
+            Barcode::factory(1)->create(['name' => 'Barcode 1']);
+        }
+        if (Shift::count() == 0) {
+            Shift::factory(2)->create();
+        }
     }
 }

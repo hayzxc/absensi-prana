@@ -62,9 +62,9 @@ Go to the **"Settings"** tab -> **"Deploy"** section.
   ```
 - **Start Command (SQLite)**: 
   ```bash
-  touch /app/storage/database.sqlite && php artisan migrate --force && php artisan storage:link && php artisan serve --host=0.0.0.0 --port=$PORT
+  touch /app/storage/database.sqlite && php artisan migrate --force && php artisan db:seed --force && php artisan storage:link && php artisan serve --host=0.0.0.0 --port=$PORT
   ```
-  *(Note: This command is for the Railway "Start Command" setting. `touch` is a Linux command and will not work in Windows PowerShell).*
+  *(Note: This command runs migrations AND seeds the database automatically on every deploy. We ensure it's safe by checking for duplicate data in the seeders).*
 
 ## Step 3: Persistence (File Uploads & SQLite)
 
