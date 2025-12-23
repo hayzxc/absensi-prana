@@ -78,8 +78,4 @@ Pilih salah satu opsi berikut:
 | Export/Import Data Absensi & User                                | Export/Import Data Absensi & User + Preview Data                                  |
 | ![Export/Import Data Absensi](./screenshots/export-absensi.jpeg) | ![Export/Import Data Absensi + Preview](./screenshots/export-absensi-preview.png) |
 
-## Donasi ❤
 
-[![Donate saweria](https://img.shields.io/badge/Donate-Saweria-red?style=for-the-badge&link=https%3A%2F%2Fsaweria.co%2Fxiboxann)](https://saweria.co/xiboxann)
-
-Atau, beri star...⭐⭐⭐⭐
