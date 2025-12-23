@@ -42,8 +42,13 @@ class DatabaseSeeder extends Seeder
         if (! Barcode::where('name', 'Barcode 1')->exists()) {
             Barcode::factory(1)->create(['name' => 'Barcode 1']);
         }
-        if (Shift::count() == 0) {
-            Shift::factory(2)->create();
-        }
+        
+        Shift::updateOrCreate(
+            ['name' => 'Office Hours'], 
+            ['start_time' => '08:00:00', 'end_time' => '17:00:00']
+        );
+        
+        // Remove old seeds if they exist to prevent confusion
+        Shift::whereIn('name', ['Shift 1', 'Shift 2'])->delete();
     }
 }
