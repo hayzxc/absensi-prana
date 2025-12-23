@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Admin;
 
+use App\Models\Attendance;
 use App\Models\Barcode;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Jetstream\InteractsWithBanner;
@@ -28,7 +29,12 @@ class BarcodeComponent extends Component
             return abort(403);
         }
         $barcode = Barcode::find($this->selectedId);
-        $barcode->delete();
+        
+        if ($barcode) {
+            Attendance::where('barcode_id', $barcode->id)->update(['barcode_id' => null]);
+            $barcode->delete();
+        }
+        
         $this->confirmingDeletion = false;
         $this->selectedId = null;
         $this->deleteName = null;
